@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app__wrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #141212;
+  color: #fff;
+}
+
+.button__wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #4caf50;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+}
+
+.mr {
+  margin-right: 5%;
+}
+
+.as__path {
+  width: 100%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
