@@ -2,7 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { throttle } from 'lodash';
 import React, { useEffect, useRef } from 'react';
 
-const BasicReactQueryWithThrottle = () => {
+const BasicReactQueryWithScroll = () => {
   const fetchProjects = async ({ pageParam }: { pageParam: number }) => {
     const res = await fetch('/api/projects?cursor=' + pageParam);
     return res.json();
@@ -29,7 +29,6 @@ const BasicReactQueryWithThrottle = () => {
     console.log("scroll")
     if (observerRef.current) {
       const { scrollTop, clientHeight, scrollHeight } = observerRef.current;
-      console.log({ scrollHeight, scrollTop, clientHeight })
       if (scrollTop + clientHeight >= scrollHeight - 10 && hasNextPage) {
         fetchNextPage();
       }
@@ -49,11 +48,11 @@ const BasicReactQueryWithThrottle = () => {
   useEffect(() => {
     const observerElement = observerRef.current;
     if (observerElement) {
-      observerElement.addEventListener('scroll', handleScrollWithThrottle);
+      observerElement.addEventListener('scroll', handleScroll);
     }
     return () => {
       if (observerElement) {
-        observerElement.removeEventListener('scroll', handleScrollWithThrottle);
+        observerElement.removeEventListener('scroll', handleScroll);
       }
     };
   }, [hasNextPage]);
@@ -79,4 +78,4 @@ const BasicReactQueryWithThrottle = () => {
   );
 };
 
-export default BasicReactQueryWithThrottle;
+export default BasicReactQueryWithScroll;
