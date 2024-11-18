@@ -48,7 +48,7 @@ const BasicReactQuery = () => {
 
   useEffect(() => {
     if (inView) {
-      throttledFetchNextPage()
+      NonThrottledFetchNextPage()
     }
   }, [inView])
 
